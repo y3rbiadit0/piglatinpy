@@ -7,7 +7,7 @@ class PigLatinTranslator:
         """
         Creates a pig latin translator given a phrase.
         :param phrase: the phrase.
-        :raise PigLatinError to handle error situation.
+        :raise PigLatinError: for any error situation.
         """
 
     def get_phrase(self) -> str:
