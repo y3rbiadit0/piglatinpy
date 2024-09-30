@@ -16,7 +16,7 @@ Take some minutes to understand, in broad terms, how the API works (see also the
 A typical API usage follows.
 ```python
 # To initialize a translator with a phrase
-translator = Translator.Translator("This is a phrase")
+translator = PigLatinTranslator.PigLatinTranslator("This is a phrase")
 # To get the phrase
 phrase = translator.get_phrase()
 # To get the Pig Latin translation
