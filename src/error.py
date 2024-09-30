@@ -1,0 +1,2 @@
+class PigLatinError(Exception):
+    pass
