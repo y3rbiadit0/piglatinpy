@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "piglatinpy"
+version = "0.1.0"
+description = ""
+authors = ["Merenda Franco N. <merenda.franco83@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
