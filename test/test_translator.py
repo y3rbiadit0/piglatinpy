@@ -15,3 +15,15 @@ class TestPigLatinTranslator(TestCase):
 
         # Assert
         self.assertEqual(result_phrase, input_phrase)
+
+    def test_translate_empty_string(self):
+        # Arrange
+        empty_string = ""
+        translator = PigLatinTranslator(empty_string)
+        expected_output = "nil"
+
+        # Act
+        result_phrase = translator.translate()
+
+        # Assert
+        self.assertEqual(result_phrase, expected_output)
