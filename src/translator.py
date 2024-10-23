@@ -22,10 +22,22 @@ class PigLatinTranslator:
         :return: the translation.
         """
 
-        if self._phrase == "":
+        if self._is_empty_phrase():
             return "nil"
 
-        if self._phrase[-1] == "y":
+        if self._ends_with_y():
             return self._phrase + "nay"
 
-        return self._phrase + "yay"
+        if self._ends_with_vowel():
+            return self._phrase + "yay"
+
+        return self._phrase + "ay"
+
+    def _is_empty_phrase(self):
+        return self._phrase == ""
+
+    def _ends_with_y(self):
+        return self._phrase[-1] == "y"
+
+    def _ends_with_vowel(self):
+        return self._phrase[-1].lower() in "aeiou"
