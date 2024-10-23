@@ -1,3 +1,6 @@
+from src.error import PigLatinError
+
+
 class PigLatinTranslator:
     _phrase: str
 
@@ -22,22 +25,27 @@ class PigLatinTranslator:
         :return: the translation.
         """
 
-        if self._is_empty_phrase():
-            return "nil"
+        translator_map = {
+            self._is_empty_phrase(): "nil",
+            self._ends_with_y(): self._phrase + "nay",
+            self._ends_with_vowel(): self._phrase + "yay",
+            self._ends_with_consonant(): self._phrase + "ay"
+        }
 
-        if self._ends_with_y():
-            return self._phrase + "nay"
-
-        if self._ends_with_vowel():
-            return self._phrase + "yay"
-
-        return self._phrase + "ay"
+        translate_attempt = translator_map.get(True)
+        if not translate_attempt:
+            raise PigLatinError()
+        return translate_attempt
 
     def _is_empty_phrase(self):
         return self._phrase == ""
 
     def _ends_with_y(self):
-        return self._phrase[-1] == "y"
+        return len(self._phrase) > 1 and self._phrase[-1] == "y"
 
     def _ends_with_vowel(self):
-        return self._phrase[-1].lower() in "aeiou"
+        return len(self._phrase) > 1 and self._phrase[-1].lower() in "aeiou"
+
+    def _ends_with_consonant(self):
+        return len(self._phrase) > 1 and self._phrase[
+            -1].lower() in "bcdfghjklmnpqrstuvwxz"
