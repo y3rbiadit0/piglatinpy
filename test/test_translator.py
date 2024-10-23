@@ -40,3 +40,15 @@ class TestPigLatinTranslator(TestCase):
         # Assert
         self.assertEqual(result_phrase[-3:], expected_end)
 
+    def test_translate_word_starting_vowel_ends_with_vowel(self):
+        # Arrange
+        empty_string = "epoque"
+        translator = PigLatinTranslator(empty_string)
+        expected_end = "yay"
+
+        # Act
+        result_phrase = translator.translate()
+
+        # Assert
+        self.assertEqual(result_phrase[-3:], expected_end)
+
