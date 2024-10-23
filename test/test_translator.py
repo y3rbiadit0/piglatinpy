@@ -1,5 +1,6 @@
 from unittest import TestCase
 
+from src.error import PigLatinError
 from src.translator import PigLatinTranslator
 
 
@@ -63,3 +64,10 @@ class TestPigLatinTranslator(TestCase):
         # Assert
         self.assertEqual(result_phrase, "inkay")
 
+
+    def test_translate_word_starting_vowel_invalid_char(self):
+        # Arrange
+        translator = PigLatinTranslator("ink1")
+
+        # Assert
+        self.assertRaises(PigLatinError, translator.translate)
